@@ -1,0 +1,13 @@
+usr/bin/kvs
+usr/bin/lblk
+usr/bin/xdd
+usr/bin/xnvme
+usr/bin/xnvme-driver
+usr/bin/xnvme_file
+usr/bin/zoned
+usr/share/man/*/kvs*
+usr/share/man/*/lblk*
+usr/share/man/*/xdd*
+usr/share/man/*/xnvme*
+usr/share/man/*/xnvme_file*
+usr/share/man/*/zoned*

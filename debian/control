@@ -1,0 +1,57 @@
+Source: xnvme
+Section: devel
+Priority: optional
+Maintainer: Simon A. F. Lund <os@safl.dk>
+Build-Depends:
+ debhelper-compat (= 13),
+ libaio-dev,
+ liburing-dev,
+ meson (>= 0.58.0),
+ pkg-config,
+Standards-Version: 4.6.2
+Homepage: https://xnvme.io/
+Vcs-Browser: https://github.com/OpenMPDK/xNVMe
+Vcs-Git: https://github.com/OpenMPDK/xNVMe.git
+Rules-Requires-Root: no
+
+Package: libxnvme0
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: xNVMe shared library
+ This package provides the versioned runtime library for xNVMe, this is needed
+ for dynamically loading xNVMe via e.g. Python or linking with the shared
+ library
+
+Package: libxnvme-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxnvme0 (= ${binary:Version})
+Description: xNVMe static library, headers, pkg-config, and code-examples
+ In the development package you will find:
+ .
+  * library, static version for users interested in statically linking with
+    xNVMe for e.g. linker-optimiation / embedding
+  * headers, the public xNVMe API (libxnvme.h, etc.)
+  * pkg-config file, to locate the xNVMe libraries and the linker
+    arguments needed to consume xNVMe
+
+Package: xnvme-cli
+Architecture: any
+Section: admin
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxnvme0 (= ${binary:Version})
+Description: Command-line utilities for NVMe and user-space driver-control
+ The following command-line utilities are provided:
+ .
+  * xnvme-driver, utility to unbind the kernel NVMe driver and bind to
+    vfio-pci/uio-generic
+  * xnvme, enumeration and interactive with NVMe devices
+  * zoned, enumerate and interact with ZNS devices
+  * lblk, enumerate and interact with NVM devices
+  * kvs, enumerate and interacti with KVS devices
+
+Package: xnvme-full
+Architecture: all
+Depends: ${misc:Depends}, libxnvme-dev, xnvme-cli
+Description: Modern and efficient API and tools designed for NVMe
+ This metapackage providing all the xNVMe headers, libraries, and tools

@@ -1,0 +1,7 @@
+xnvme (0.7.3-1) stable; urgency=low
+
+  * Initial release (Closes: #1038161)
+  * This is my first Debian package.
+  * No patches; fixes are applied upstream.
+
+ -- Simon A. F. Lund <os@safl.dk>  Thu, 16 Nov 2023 14:03:38 +0000
